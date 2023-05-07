@@ -1,0 +1,22 @@
+<h2>Transactions</h2>
+<div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>SENDER</th>
+      <th>RECEIVER</th>
+      <th>TOTAL AMOUNT</th>
+      <th>TOTAL PAID AMOUNT</th>
+    </tr>
+    <tr *ngFor="let tr of transactions | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: transactionsTotalCount }">
+      <td>{{tr.id}}</td>
+      <td>{{tr.sender}}</td>
+      <td>{{tr.receiver}}</td>
+      <td>{{tr.totalAmount}}</td>
+      <td><a class="cursor-pointer" [routerLink]="'installments/' + tr.id">{{tr.totalPaidAmount}}</a></td>
+    </tr>
+  </table>
+  <div class="mx-auto">
+    <pagination-controls class="m-auto" (pageChange)="onPageChange($event)"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<ng-container *ngIf="!!transaction">
+  <h2>Transaction "{{transactionId}}" Installments</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>SENDER</th>
+      <th>RECEIVER</th>
+      <th>TOTAL AMOUNT</th>
+      <th>PAID AMOUNT</th>
+    </tr>
+    <tr *ngFor="let ins of installments">
+      <td>{{ins.id}}</td>
+      <td>{{transaction.sender}}</td>
+      <td>{{transaction.receiver}}</td>
+      <td>{{transaction.totalAmount}}</td>
+      <td>{{ins.paidAmount}}</td>
+    </tr>
+  </table>
+</ng-container>
